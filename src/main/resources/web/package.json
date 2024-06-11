@@ -1,6 +1,6 @@
 {
   "name": "agiletc",
-  "version": "1.0.0",
+  "version": "v1.0.0",
   "author": "刘智",
   "description": "测试用例管理平台",
   "main": "app.js",

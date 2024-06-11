@@ -59,7 +59,7 @@ export const Footer00DataSource = {
     children: (
       <span>
         <p>
-          <span>Copyright © 2021 深圳市昂楷科技科技有限公司 保留所有版权</span>
+          <span>Copyright © 2024 深圳市昂楷科技科技有限公司 保留所有版权</span>
         </p>
       </span>
     ),
