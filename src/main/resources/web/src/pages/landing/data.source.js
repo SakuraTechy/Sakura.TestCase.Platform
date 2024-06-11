@@ -14,7 +14,7 @@ export const Banner30DataSource = {
           <div>
             <img src={logoImg} className="banner3-logo" />
             <br />
-            <span>昂楷科技</span>
+            <span>小智科技</span>
           </div>
         ),
       },
@@ -59,7 +59,7 @@ export const Footer00DataSource = {
     children: (
       <span>
         <p>
-          <span>Copyright © 2024 深圳市昂楷科技科技有限公司 保留所有版权</span>
+          <span>Copyright © 2024 深圳市小智科技科技有限公司 保留所有版权</span>
         </p>
       </span>
     ),

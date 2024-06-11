@@ -78,7 +78,7 @@ class LogIn extends React.PureComponent {
       <div className="login">
         <div className={type != '3' ? "card" : "card1"}>
           <div className="title">
-            昂楷科技<span>一套敏捷的测试用例管理平台</span>
+            小智科技<span>一套敏捷的测试用例管理平台</span>
           </div>
           {
             type != '3' ? <span

@@ -94,7 +94,7 @@ export default class Home extends React.Component {
       >
         <Header style={{ zIndex: 9 }}>
           <a href="/" style={{ color: '#fff', fontSize: 24 }}>
-            昂楷科技-测试用例管理平台
+            小智科技-测试用例管理平台
           </a>
           {getCookies('username') ? (
             <Dropdown overlay={menu} overlayClassName="dropStyle" placement="bottomLeft">
