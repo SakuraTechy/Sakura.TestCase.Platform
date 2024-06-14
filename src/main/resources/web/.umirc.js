@@ -32,6 +32,7 @@ const uglifyJSOptions =
 const proxy =
   // umi dev NODE_ENV='development'需要配置
   // umi build NODE_ENV='production'不需要配置
+  console.log('dev', process.env.NODE_ENV)
   NODE_ENV === 'development'
     ? {
       '/api': {
