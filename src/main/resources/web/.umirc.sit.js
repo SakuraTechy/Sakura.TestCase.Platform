@@ -36,7 +36,7 @@ const proxy =
     ? {
       '/api': {
         // target: 'http://localhost:8094',      // 开发环境
-        target: `http://172.19.5.227:8094`, // 测试环境
+        target: `http://172.19.5.237:8094`, // 测试环境
         // target: `http://yht.sunline.cn:8094`, // 生产环境
         changeOrigin: true,
         // pathRewrite: { '^/api': '' },

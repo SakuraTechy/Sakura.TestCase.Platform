@@ -1,6 +1,5 @@
-/target/        //忽略这个target目录
-/logs/          //忽略log下的所有文件
-angular.json    //忽略这个angular.json文件
-css/*.css       //忽略css目录下的.css文件
-src/main/resources/web/node_modules/*   //忽略前端依赖包
+/target/
 /logs/
+angular.json
+css/*.css
+src/main/resources/web/node_modules/*
