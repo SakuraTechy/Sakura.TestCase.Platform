@@ -34,8 +34,7 @@ class casePage extends React.Component {
         <Menu className="menu" onClick={this.handleDropdownClick}>
           <Menu.Item key="logout">
             <span>
-              <Icon type="logout" />
-                        退出登录
+              <Icon type="logout" />退出登录
             </span>
           </Menu.Item>
         </Menu>
@@ -43,9 +42,7 @@ class casePage extends React.Component {
       return getCookies('username') ? (
         <section style={{ marginBottom: 30 }}>
           <Header style={{ zIndex: 9 }}>
-            <a href="/" style={{ color: '#fff', fontSize: 24 }}>
-                        小智科技-测试场景管理平台
-            </a>
+            <a href="/" style={{ color: '#fff', fontSize: 24 }}>测试场景管理平台</a>
             {getCookies('username') ? (
               <Dropdown
                 overlay={menu}
@@ -59,9 +56,7 @@ class casePage extends React.Component {
                 </div>
               </Dropdown>
             ) : (
-              <a href="/login" className="loginCss">
-                            登录/注册
-              </a>
+              <a href="/login" className="loginCss">登录/注册</a>
             )}
           </Header>
           {/* <Headers /> */}

@@ -78,9 +78,7 @@ export default class Home extends React.Component {
         <Menu className="menu" onClick={this.handleDropdownClick}>
           <Menu.Item key="logout">
             <span>
-              <Icon type="logout" />
-                        退出登录
-            </span>
+              <Icon type="logout" />退出登录</span>
           </Menu.Item>
         </Menu>
       )
@@ -92,9 +90,7 @@ export default class Home extends React.Component {
           }}
         >
           <Header style={{ zIndex: 9 }}>
-            <a href="/" style={{ color: '#fff', fontSize: 24 }}>
-                        小智科技-测试场景管理平台
-            </a>
+            <a href="/" style={{ color: '#fff', fontSize: 24 }}>测试场景管理平台</a>
             {getCookies('username') ? (
               <Dropdown
                 overlay={menu}
@@ -108,9 +104,7 @@ export default class Home extends React.Component {
                 </div>
               </Dropdown>
             ) : (
-              <a href="/login" className="loginCss">
-                            登录/注册
-              </a>
+              <a href="/login" className="loginCss">登录/注册</a>
             )}
           </Header>
           {/* <Headers /> */}
