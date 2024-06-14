@@ -247,7 +247,7 @@ class CaseLists extends React.Component {
             <Row className="m-b-10">
               <Col span={18}>
                 <div style={{ margin: '10px' }}>
-                  快速筛选11：<a>全部({total})</a>
+                  快速筛选：<a>全部({total})</a>
                 </div>
               </Col>
               <Col xs={6} className="text-right">
