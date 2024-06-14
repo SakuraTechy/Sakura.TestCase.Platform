@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React from 'react'
 import logoImg from './img/atclogo4.png'
 import getQueryString from '@/utils/getCookies'
@@ -23,7 +24,7 @@ export const Banner30DataSource = {
         className: 'banner3-name',
         children: (
           <span>
-            <p>一套敏捷的测试用例管理平台</p>
+            <p>一套敏捷的测试场景管理平台</p>
           </span>
         ),
       },
@@ -32,9 +33,9 @@ export const Banner30DataSource = {
         className: 'banner3-name-en',
         children: (
           <span style={{ color: '#7d899b' }}>
-            以脑图方式编辑可快速上手，用例关联需求形成流程闭环，并支持组件化引用，
+                        以脑图方式编辑可快速上手，用例关联需求形成流程闭环，并支持组件化引用，
             <br />
-            可在各个平台嵌入使用，是测试人员的贴心助手
+                        可在各个平台嵌入使用，是测试人员的贴心助手
           </span>
         ),
       },

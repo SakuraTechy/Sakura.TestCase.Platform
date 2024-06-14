@@ -1,5 +1,4 @@
-/* eslint no-undef: 0 */
-/* eslint arrow-parens: 0 */
+/* eslint-disable */
 import React from 'react'
 import { enquireScreen } from 'enquire-js'
 import { Layout, Icon, Menu, Dropdown } from 'antd'
@@ -47,74 +46,78 @@ export default class Home extends React.Component {
     /* 如果不是 dva 2.0 请删除 end */
   }
 
-  // 登出
-  handleDropdownClick = () => {
-    request(`/user/quit`, {
-      method: 'POST',
-    }).then(res => {
-      if (res && res.code === 200) {
-        window.location.href = `/login?jumpto=${window.location.href}`
-      } else {
-        message.error(res.msg)
-      }
-    })
-  }
+    // 登出
+    handleDropdownClick = () => {
+      request(`/user/quit`, {
+        method: 'POST',
+      }).then(res => {
+        if (res && res.code === 200) {
+          window.location.href = `/login?jumpto=${window.location.href}`
+        } else {
+          message.error(res.msg)
+        }
+      })
+    }
 
-  render() {
-    const children = [
-      <Banner3
-        id="Banner3_0"
-        key="Banner3_0"
-        dataSource={Banner30DataSource}
-        isMobile={this.state.isMobile}
-      />,
-      <Footer0
-        id="Footer0_0"
-        key="Footer0_0"
-        dataSource={Footer00DataSource}
-        isMobile={this.state.isMobile}
-      />,
-    ]
-    const menu = (
-      <Menu className="menu" onClick={this.handleDropdownClick}>
-        <Menu.Item key="logout">
-          <span>
-            <Icon type="logout" />
-            退出登录
-          </span>
-        </Menu.Item>
-      </Menu>
-    )
-    return (
-      <div
-        className="templates-wrapper"
-        ref={d => {
-          this.dom = d
-        }}
-      >
-        <Header style={{ zIndex: 9 }}>
-          <a href="/" style={{ color: '#fff', fontSize: 24 }}>
-            小智科技-测试用例管理平台
-          </a>
-          {getCookies('username') ? (
-            <Dropdown overlay={menu} overlayClassName="dropStyle" placement="bottomLeft">
-              <div className="user">
-                <Icon type="user" className="userIcon" />
-                <span className="username">{getCookies('username')}</span>
-                <Icon type="down" className="dowm" />
-              </div>
-            </Dropdown>
-          ) : (
-            <a href="/login" className="loginCss">
-              登录/注册
+    render() {
+      const children = [
+        <Banner3
+          id="Banner3_0"
+          key="Banner3_0"
+          dataSource={Banner30DataSource}
+          isMobile={this.state.isMobile}
+        />,
+        <Footer0
+          id="Footer0_0"
+          key="Footer0_0"
+          dataSource={Footer00DataSource}
+          isMobile={this.state.isMobile}
+        />,
+      ]
+      const menu = (
+        <Menu className="menu" onClick={this.handleDropdownClick}>
+          <Menu.Item key="logout">
+            <span>
+              <Icon type="logout" />
+                        退出登录
+            </span>
+          </Menu.Item>
+        </Menu>
+      )
+      return (
+        <div
+          className="templates-wrapper"
+          ref={d => {
+            this.dom = d
+          }}
+        >
+          <Header style={{ zIndex: 9 }}>
+            <a href="/" style={{ color: '#fff', fontSize: 24 }}>
+                        小智科技-测试场景管理平台
             </a>
-          )}
-        </Header>
-        {/* <Headers /> */}
-        {/* 如果不是 dva 2.0 替换成 {children} start */}
-        {this.state.show && children}
-        {/* 如果不是 dva 2.0 替换成 {children} end */}
-      </div>
-    )
-  }
+            {getCookies('username') ? (
+              <Dropdown
+                overlay={menu}
+                overlayClassName="dropStyle"
+                placement="bottomLeft"
+              >
+                <div className="user">
+                  <Icon type="user" className="userIcon" />
+                  <span className="username">{getCookies('username')}</span>
+                  <Icon type="down" className="dowm" />
+                </div>
+              </Dropdown>
+            ) : (
+              <a href="/login" className="loginCss">
+                            登录/注册
+              </a>
+            )}
+          </Header>
+          {/* <Headers /> */}
+          {/* 如果不是 dva 2.0 替换成 {children} start */}
+          {this.state.show && children}
+          {/* 如果不是 dva 2.0 替换成 {children} end */}
+        </div>
+      )
+    }
 }
