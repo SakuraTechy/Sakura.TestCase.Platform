@@ -34,10 +34,10 @@ const proxy =
   // umi build NODE_ENV='production'不需要配置
   NODE_ENV === 'development'
     ? {
-      '/api1': {
-        // target: 'http://localhost:8443',            // 开发环境
+      '/api': {
+        target: 'http://localhost:8443',            // 开发环境
         // target: `http://172.19.5.227:8094`,      // 测试环境
-        target: `https://172.19.5.237:18094111`,       // 生产环境
+        // target: `http://172.19.5.237:18094`,       // 生产环境
         changeOrigin: true,
         // pathRewrite: { '^/api': '' },
       }
@@ -144,7 +144,7 @@ const chainWebpack = config => {
 };
 export default {
   define: {
-    'process.env.apiUrl': 'http://localhost:8094', // 开发环境
+    'process.env.apiUrl': 'https://localhost:18094', // 开发环境
   },
   hash: true,
   treeShaking: true,
