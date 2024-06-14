@@ -141,7 +141,7 @@ public class CookieUtils {
             if(httpOnly != null) {
                 cookie.setHttpOnly(httpOnly);
             }
-            cookie.setSecure(true);
+//            cookie.setSecure(true);
             response.addCookie(cookie);
         } catch (Exception e) {
             logger.error("Cookie Encode Error.", e);
