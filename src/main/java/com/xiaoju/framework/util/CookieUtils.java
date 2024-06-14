@@ -143,7 +143,6 @@ public class CookieUtils {
             }
 //            cookie.setSecure(true);
 //            response.setHeader("Set-Cookie", "locale=pt-BR; HttpOnly; Secure; SameSite=None;");
-            response.setHeader("Set-Cookie", cookieName+"="+cookieValue+"; SameSite=None; Secure");
             response.addCookie(cookie);
         } catch (Exception e) {
             logger.error("Cookie Encode Error.", e);

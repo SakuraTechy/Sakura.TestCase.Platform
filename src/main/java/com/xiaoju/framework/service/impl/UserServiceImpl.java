@@ -91,7 +91,8 @@ public class UserServiceImpl implements UserService {
         }
 
         //3.将新用户设置到cookie中去
-        CookieUtils.setCookie(request, response, "username", req.getUsername(), 60 * 60 * 24, null, false);
+//        CookieUtils.setCookie(request, response, "username", req.getUsername(), 60 * 60 * 24, null, false);
+        response.setHeader("Set-Cookie", "username="+req.getUsername()+"; SameSite=None; Secure;Max-Age="+(60 * 60 * 24)+";Path=/");
 
         //4.开启权限时，主动刷新对应权限信息缓存
         if (authorityFlag) {
