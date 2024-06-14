@@ -6,6 +6,7 @@ import com.xiaoju.framework.entity.request.auth.UserRegisterReq;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.UnsupportedEncodingException;
 import java.util.List;
 
 /**
@@ -28,7 +29,7 @@ public interface UserService {
      * @param request 请求体
      * @return 用户信息
      */
-    User login(UserLoginReq req, HttpServletRequest request, HttpServletResponse response);
+    User login(UserLoginReq req, HttpServletRequest request, HttpServletResponse response) throws UnsupportedEncodingException;
 
     /**
      * 修改密码

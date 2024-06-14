@@ -24,6 +24,8 @@ import javax.annotation.Resource;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 import java.util.*;
 
 /**
@@ -78,7 +80,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User login(UserLoginReq req, HttpServletRequest request, HttpServletResponse response) {
+    public User login(UserLoginReq req, HttpServletRequest request, HttpServletResponse response) throws UnsupportedEncodingException {
         //1.检查数据库中是否存在该用户
         User dbuser = userMapper.selectByUserName(req.getUsername());
         if (dbuser == null) {
@@ -92,7 +94,7 @@ public class UserServiceImpl implements UserService {
 
         //3.将新用户设置到cookie中去
 //        CookieUtils.setCookie(request, response, "username", req.getUsername(), 60 * 60 * 24, null, false);
-        response.setHeader("Set-Cookie", "username="+req.getUsername()+"; SameSite=None; Secure;Max-Age="+(60 * 60 * 24)+";Path=/");
+        response.setHeader("Set-Cookie", "username="+ URLEncoder.encode(req.getUsername(), "utf-8")+"; SameSite=None; Secure;Max-Age="+(60 * 60 * 24)+";Path=/");
 
         //4.开启权限时，主动刷新对应权限信息缓存
         if (authorityFlag) {
