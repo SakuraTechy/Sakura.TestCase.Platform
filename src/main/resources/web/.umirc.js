@@ -35,9 +35,9 @@ const proxy =
   NODE_ENV === 'development'
     ? {
       '/api': {
-        // target: 'http://localhost:8094',            // 开发环境
-        target: `http://172.19.5.2271:8094`,      // 测试环境
-        // target: `http://172.19.5.227:18094`,       // 生产环境
+        target: 'http://localhost:8094',            // 开发环境
+        // target: `http://172.19.5.227:8094`,      // 测试环境
+        // target: `https://172.19.5.227:18443`,       // 生产环境
         changeOrigin: true,
         // pathRewrite: { '^/api': '' },
       }
@@ -46,7 +46,7 @@ const proxy =
 
 const chainWebpack = config => {
   console.log('dev', process.env.NODE_ENV)
-  if (NODE_ENV === 'production1') {
+  if (NODE_ENV === 'production') {
     config.merge({
       optimization: {
         minimize: true,
@@ -144,7 +144,7 @@ const chainWebpack = config => {
 };
 export default {
   define: {
-    'process.env.apiUrl1': 'https://localhost:180941', // 开发环境
+    'process.env.apiUrl': 'http://localhost:8094', // 开发环境
   },
   hash: true,
   treeShaking: true,

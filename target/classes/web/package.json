@@ -1,8 +1,8 @@
 {
   "name": "agiletc",
-  "version": "1.0.0",
+  "version": "v1.0.0",
   "author": "刘智",
-  "description": "测试用例管理平台",
+  "description": "测试场景管理平台",
   "main": "app.js",
   "scripts": {
     "dev": "umi dev",

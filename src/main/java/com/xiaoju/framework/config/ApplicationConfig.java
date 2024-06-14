@@ -8,6 +8,8 @@ import com.xiaoju.framework.service.CaseBackupService;
 import com.xiaoju.framework.service.RecordService;
 import org.apache.catalina.Context;
 import org.apache.catalina.connector.Connector;
+import org.apache.tomcat.util.descriptor.web.SecurityCollection;
+import org.apache.tomcat.util.descriptor.web.SecurityConstraint;
 import org.apache.tomcat.websocket.server.WsSci;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -58,12 +60,12 @@ public class ApplicationConfig {
             @Override
             protected void postProcessContext(Context context) {
                 // 如果要强制使用https，请松开以下注释
-                // SecurityConstraint securityConstraint = new SecurityConstraint();
-                // securityConstraint.setUserConstraint("CONFIDENTIAL");
-                // SecurityCollection collection = new SecurityCollection();
-                // collection.addPattern("/*");
-                // securityConstraint.addCollection(collection);
-                // context.addConstraint(securityConstraint);
+//                 SecurityConstraint securityConstraint = new SecurityConstraint();
+//                 securityConstraint.setUserConstraint("CONFIDENTIAL");
+//                 SecurityCollection collection = new SecurityCollection();
+//                 collection.addPattern("/*");
+//                 securityConstraint.addCollection(collection);
+//                 context.addConstraint(securityConstraint);
             }
         };
         tomcat.addAdditionalTomcatConnectors(createStandardConnector());

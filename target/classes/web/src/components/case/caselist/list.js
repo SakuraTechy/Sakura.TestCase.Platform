@@ -152,10 +152,9 @@ class Lists extends React.Component {
         align: 'center',
         width: 100,
         render: (text, record) => {
-          console.log('record', record);
           return (
             <Tooltip title='用例总数'>
-              <span className="table-operation">{this.state.caseInfo.totalCount}</span>
+              <span className="table-operation">{record.totalCount}</span>
             </Tooltip>
           );
         },
@@ -395,7 +394,6 @@ class Lists extends React.Component {
   getCaseInfo = (priority, resource) => {
     const { record, titleModeTask } = this.state;
     let url = `${this.props.doneApiPrefix}/case/countByCondition`;
-    console.log(priority);
     request(url, {
       method: 'GET',
       params: {
