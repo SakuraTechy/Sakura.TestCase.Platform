@@ -16,6 +16,7 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.constraints.NotNull;
+import java.io.UnsupportedEncodingException;
 import java.util.LinkedList;
 
 /**
@@ -47,7 +48,7 @@ public class UserController {
      * @return
      */
     @PostMapping("/login")
-    public Response<?> login(@RequestBody UserLoginReq req, HttpServletRequest request, HttpServletResponse response) {
+    public Response<?> login(@RequestBody UserLoginReq req, HttpServletRequest request, HttpServletResponse response) throws UnsupportedEncodingException {
         return Response.success(userService.login(req,request,response));
     }
 
