@@ -139,7 +139,7 @@ public class UserServiceImpl implements UserService {
 
 //                response.addCookie(newcookie);
             }
-            response.setHeader("Set-Cookie", "SameSite=None; Secure;Max-Age=0;Path=/");
+            response.setHeader("Set-Cookie", "username=;SameSite=None; Secure;Max-Age=0;Path=/");
         }
 
         return null;
