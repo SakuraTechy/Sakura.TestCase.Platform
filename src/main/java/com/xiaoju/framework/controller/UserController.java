@@ -36,7 +36,7 @@ public class UserController {
      * @return
      */
     @PostMapping("/register")
-    public Response<?> register(@RequestBody UserRegisterReq req, HttpServletRequest request, HttpServletResponse response) {
+    public Response<?> register(@RequestBody UserRegisterReq req, HttpServletRequest request, HttpServletResponse response) throws UnsupportedEncodingException {
         return Response.success(userService.register(req,request,response));
     }
 
