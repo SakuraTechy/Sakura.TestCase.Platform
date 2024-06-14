@@ -32,25 +32,17 @@ const uglifyJSOptions =
 const proxy =
   // umi dev NODE_ENV='development'需要配置
   // umi build NODE_ENV='production'不需要配置
-  NODE_ENV === 'production'
+  NODE_ENV === 'development'
     ? {
       '/api': {
         // target: 'http://localhost:8094',         // 开发环境
         // target: `http://yhtsit.sunline.cn:8094`, // 测试环境
-        target: `https://172.19.5.237:18094`,       // 生产环境
+        target: `https://172.19.5.217:18094`,       // 生产环境
         changeOrigin: true,
         // pathRewrite: { '^/api': '' },
       },
     }
-    : {
-      '/api': {
-        // target: 'http://localhost:8094',      // 开发环境
-        target: `http://172.19.5.237:8094`, // 测试环境
-        // target: `http://yht.sunline.cn:8094`, // 生产环境
-        changeOrigin: true,
-        // pathRewrite: { '^/api': '' },
-      },
-    };
+    : {};
 
 const chainWebpack = config => {
   console.log('pro', process.env.NODE_ENV)
