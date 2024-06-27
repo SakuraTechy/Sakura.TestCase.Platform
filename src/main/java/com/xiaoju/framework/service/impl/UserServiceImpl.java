@@ -74,8 +74,8 @@ public class UserServiceImpl implements UserService {
         userMapper.insertSelective(user);
 
         //4.将新用户设置到cookie中去
-//        CookieUtils.setCookie(request, response, "username", req.getUsername(), 60 * 60 * 24, null, false);
-        response.setHeader("Set-Cookie", "username="+ URLEncoder.encode(req.getUsername(), "utf-8")+"; SameSite=None; Secure;Max-Age="+(60 * 60 * 24)+";Path=/");
+        CookieUtils.setCookie(request, response, "username", req.getUsername(), 60 * 60 * 24, null, false);
+//        response.setHeader("Set-Cookie", "username="+ URLEncoder.encode(req.getUsername(), "utf-8")+"; SameSite=None; Secure;Max-Age="+(60 * 60 * 24)+";Path=/");
 
         return null;
     }
@@ -94,8 +94,8 @@ public class UserServiceImpl implements UserService {
         }
 
         //3.将新用户设置到cookie中去
-//        CookieUtils.setCookie(request, response, "username", req.getUsername(), 60 * 60 * 24, null, false);
-        response.setHeader("Set-Cookie", "username="+ URLEncoder.encode(req.getUsername(), "utf-8")+"; SameSite=None; Secure;Max-Age="+(60 * 60 * 24)+";Path=/");
+        CookieUtils.setCookie(request, response, "username", req.getUsername(), 60 * 60 * 24, null, false);
+//        response.setHeader("Set-Cookie", "username="+ URLEncoder.encode(req.getUsername(), "utf-8")+"; SameSite=None; Secure;Max-Age="+(60 * 60 * 24)+";Path=/");
 
         //4.开启权限时，主动刷新对应权限信息缓存
         if (authorityFlag) {
@@ -126,7 +126,7 @@ public class UserServiceImpl implements UserService {
                 newcookie.setPath("/");
                 newcookie.setMaxAge(0);
 
-//                response.addCookie(newcookie);
+                response.addCookie(newcookie);
             }
 
             //删除cookie中的jsessionid
@@ -137,9 +137,9 @@ public class UserServiceImpl implements UserService {
                 newcookie.setPath("/");
                 newcookie.setMaxAge(0);
 
-//                response.addCookie(newcookie);
+                response.addCookie(newcookie);
             }
-            response.setHeader("Set-Cookie", "username=;SameSite=None; Secure;Max-Age=0;Path=/");
+//            response.setHeader("Set-Cookie", "username=;SameSite=None; Secure;Max-Age=0;Path=/");
         }
 
         return null;
