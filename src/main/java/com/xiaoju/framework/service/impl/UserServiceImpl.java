@@ -51,7 +51,7 @@ public class UserServiceImpl implements UserService {
     private AuthorityMapper authorityMapper;
 
     @Override
-    public User register(UserRegisterReq req, HttpServletRequest request, HttpServletResponse response) throws UnsupportedEncodingException {
+    public User register(UserRegisterReq req, HttpServletRequest request, HttpServletResponse response) {
         //1.检查数据库中是否已经存在该用户
         User dbuser = userMapper.selectByUserName(req.getUsername());
         if (dbuser != null) {
@@ -74,14 +74,14 @@ public class UserServiceImpl implements UserService {
         userMapper.insertSelective(user);
 
         //4.将新用户设置到cookie中去
-//        CookieUtils.setCookie(request, response, "username", req.getUsername(), 60 * 60 * 24, null, false);
-        response.setHeader("Set-Cookie", "username="+ URLEncoder.encode(req.getUsername(), "utf-8")+"; SameSite=None; Secure;Max-Age="+(60 * 60 * 24)+";Path=/");
+        CookieUtils.setCookie(request, response, "username", req.getUsername(), 60 * 60 * 24, null, false);
+//        response.setHeader("Set-Cookie", "username="+ URLEncoder.encode(req.getUsername(), "utf-8")+"; SameSite=None; Secure;Max-Age="+(60 * 60 * 24)+";Path=/");
 
         return null;
     }
 
     @Override
-    public User login(UserLoginReq req, HttpServletRequest request, HttpServletResponse response) throws UnsupportedEncodingException {
+    public User login(UserLoginReq req, HttpServletRequest request, HttpServletResponse response) {
         //1.检查数据库中是否存在该用户
         User dbuser = userMapper.selectByUserName(req.getUsername());
         if (dbuser == null) {
@@ -94,8 +94,8 @@ public class UserServiceImpl implements UserService {
         }
 
         //3.将新用户设置到cookie中去
-//        CookieUtils.setCookie(request, response, "username", req.getUsername(), 60 * 60 * 24, null, false);
-        response.setHeader("Set-Cookie", "username="+ URLEncoder.encode(req.getUsername(), "utf-8")+"; SameSite=None; Secure;Max-Age="+(60 * 60 * 24)+";Path=/");
+        CookieUtils.setCookie(request, response, "username", req.getUsername(), 60 * 60 * 24, null, false);
+//        response.setHeader("Set-Cookie", "username="+ URLEncoder.encode(req.getUsername(), "utf-8")+"; SameSite=None; Secure;Max-Age="+(60 * 60 * 24)+";Path=/");
 
         //4.开启权限时，主动刷新对应权限信息缓存
         if (authorityFlag) {
