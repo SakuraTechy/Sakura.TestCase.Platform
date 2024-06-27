@@ -16,6 +16,7 @@
   },
   "plugins": ["prettier", "react"],
   "rules": {
+    "all": "off",
     "prettier/prettier": [
       "error",
       {
