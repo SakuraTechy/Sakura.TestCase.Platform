@@ -20,7 +20,7 @@ public interface UserService {
      * @param request 请求体
      * @return 用户信息
      */
-    User register(UserRegisterReq req, HttpServletRequest request, HttpServletResponse response) throws UnsupportedEncodingException;
+    User register(UserRegisterReq req, HttpServletRequest request, HttpServletResponse response);
 
     /**
      * 用户登录
@@ -29,7 +29,7 @@ public interface UserService {
      * @param request 请求体
      * @return 用户信息
      */
-    User login(UserLoginReq req, HttpServletRequest request, HttpServletResponse response) throws UnsupportedEncodingException;
+    User login(UserLoginReq req, HttpServletRequest request, HttpServletResponse response);
 
     /**
      * 修改密码

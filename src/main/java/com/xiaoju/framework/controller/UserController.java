@@ -36,7 +36,7 @@ public class UserController {
      * @return
      */
     @PostMapping("/register")
-    public Response<?> register(@RequestBody UserRegisterReq req, HttpServletRequest request, HttpServletResponse response) throws UnsupportedEncodingException {
+    public Response<?> register(@RequestBody UserRegisterReq req, HttpServletRequest request, HttpServletResponse response) {
         return Response.success(userService.register(req,request,response));
     }
 
@@ -48,7 +48,7 @@ public class UserController {
      * @return
      */
     @PostMapping("/login")
-    public Response<?> login(@RequestBody UserLoginReq req, HttpServletRequest request, HttpServletResponse response) throws UnsupportedEncodingException {
+    public Response<?> login(@RequestBody UserLoginReq req, HttpServletRequest request, HttpServletResponse response)  {
         return Response.success(userService.login(req,request,response));
     }
 

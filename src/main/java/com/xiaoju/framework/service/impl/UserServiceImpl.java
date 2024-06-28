@@ -13,6 +13,7 @@ import com.xiaoju.framework.service.UserService;
 import com.xiaoju.framework.util.CodecUtils;
 import com.xiaoju.framework.util.CookieUtils;
 import com.xiaoju.framework.util.StringUtil;
+import lombok.SneakyThrows;
 import org.apache.commons.collections4.CollectionUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -50,6 +51,7 @@ public class UserServiceImpl implements UserService {
     @Resource
     private AuthorityMapper authorityMapper;
 
+    @SneakyThrows
     @Override
     public User register(UserRegisterReq req, HttpServletRequest request, HttpServletResponse response) {
         //1.检查数据库中是否已经存在该用户
@@ -74,12 +76,13 @@ public class UserServiceImpl implements UserService {
         userMapper.insertSelective(user);
 
         //4.将新用户设置到cookie中去
-        CookieUtils.setCookie(request, response, "username", req.getUsername(), 60 * 60 * 24, null, false);
-//        response.setHeader("Set-Cookie", "username="+ URLEncoder.encode(req.getUsername(), "utf-8")+"; SameSite=None; Secure;Max-Age="+(60 * 60 * 24)+";Path=/");
+//        CookieUtils.setCookie(request, response, "username", req.getUsername(), 60 * 60 * 24, null, false);
+        response.setHeader("Set-Cookie", "username="+ URLEncoder.encode(req.getUsername(), "utf-8")+"; SameSite=None; Secure;Max-Age="+(60 * 60 * 24)+";Path=/");
 
         return null;
     }
 
+    @SneakyThrows
     @Override
     public User login(UserLoginReq req, HttpServletRequest request, HttpServletResponse response) {
         //1.检查数据库中是否存在该用户
@@ -94,8 +97,8 @@ public class UserServiceImpl implements UserService {
         }
 
         //3.将新用户设置到cookie中去
-        CookieUtils.setCookie(request, response, "username", req.getUsername(), 60 * 60 * 24, null, false);
-//        response.setHeader("Set-Cookie", "username="+ URLEncoder.encode(req.getUsername(), "utf-8")+"; SameSite=None; Secure;Max-Age="+(60 * 60 * 24)+";Path=/");
+//        CookieUtils.setCookie(request, response, "username", req.getUsername(), 60 * 60 * 24, null, false);
+        response.setHeader("Set-Cookie", "username="+ URLEncoder.encode(req.getUsername(), "utf-8")+"; SameSite=None; Secure;Max-Age="+(60 * 60 * 24)+";Path=/");
 
         //4.开启权限时，主动刷新对应权限信息缓存
         if (authorityFlag) {
