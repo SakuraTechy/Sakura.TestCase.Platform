@@ -419,7 +419,7 @@ export default class CaseMgt extends React.Component {
             baseUrl="" //图片上传请求域名
             uploadUrl="/api/file/uploadAttachment" //图片上传请求接口
             // wsUrl={`ws://${window.location.host}/api/case/${caseId}/${itemid}/${iscore}/${user}`} //websocket 请求地址
-            wsUrl = {window.location.protocol=='http:'?`ws://${window.location.host}/api/case/${caseId}/${itemid}/${iscore}/${user}`:`wss://www.sakura.hk.cn:18443/api/case/${caseId}/${itemid}/${iscore}/${user}`}
+            wsUrl = {window.location.protocol=='http:'?`ws://${window.location.host}/api/case/${caseId}/${itemid}/${iscore}/${user}`:`wss://172.19.5.227:18443/api/case/${caseId}/${itemid}/${iscore}/${user}`}
             // type={compare} //是否为只查看 xmind 数据,type 为 compare 时只读
             onSave={ //保存快捷键方法回调,回传脑图全部数据
               Number(iscore) !== 2
