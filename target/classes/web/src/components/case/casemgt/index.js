@@ -380,7 +380,7 @@ export default class CaseMgt extends React.Component {
             progressShow={progressShow} //工具栏是否展示结果
             readOnly={readOnly} //脑图是否可编辑
             mediaShow={!progressShow}
-            priority={[1, 2, 3]} //优先级列表	
+            priority={[1, 2, 3]} //优先级列表
             editorStyle={{ height: 'calc(100vh - 100px)' }} //编辑器样式(高度等)
             toolbar={{
               image: true,
