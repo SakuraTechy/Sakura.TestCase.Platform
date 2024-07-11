@@ -305,24 +305,24 @@ class TaskModal extends React.Component {
             />,
           )}
         </Form.Item>
-        <Form.Item {...formItemLayout} label="选择用例集">
+        <Form.Item {...formItemLayout} label="选择场景集">
           {getFieldDecorator('chooseContent', {
             initialValue: radioValue,
           })(
             <Radio.Group onChange={this.radioOnChange}>
               <Radio style={radioStyle} value={'0'}>
-                包含全部用例
+                包含全部场景
                 <br />
                 <p className="small-size-font">
                   {' '}
-                  覆盖全部可用用例（共计{' '}
+                  覆盖全部可用场景（共计{' '}
                   {(this.props.record && this.props.caseInfo.totalCount) ||
                     '0'}{' '}
-                  个），如果用例集库有新增的用例，会自动加入到本计划中
+                  个），如果场景集库有新增的场景，会自动加入到本计划中
                 </p>
               </Radio>
               <Radio style={radioStyle} value={'1'}>
-                手动圈选用例集
+                手动圈选场景集
                 <br />
                 <Row className="menu-case">
                   <Col span={4} style={{ textAlign: 'right' }}>
@@ -334,7 +334,7 @@ class TaskModal extends React.Component {
                       disabled={radioValue !== '1'}
                       mode="multiple"
                       onChange={this.handleChangeSelect}
-                      placeholder="用例等级"
+                      placeholder="场景等级"
                       value={selectValue}
                     >
                       {grade.map((item, index) => (
@@ -371,7 +371,7 @@ class TaskModal extends React.Component {
                   (this.props.caseInfo.count ||
                     this.props.caseInfo.count === 0) && (
                     <span style={{ marginLeft: 22 }}>
-                      {this.props.caseInfo.count}条用例集已选
+                      {this.props.caseInfo.count}条场景集已选
                     </span>
                   )}
               </Radio>

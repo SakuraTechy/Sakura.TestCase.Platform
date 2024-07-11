@@ -46,7 +46,7 @@ class CaseModal extends React.Component {
       title: '',
       show: this.props.show,
       iterationList: [], // 需求列表
-      nameFilter: '', // 用例名称筛选最终选择
+      nameFilter: '', // 场景名称筛选最终选择
       xmindFile: null, // 保存上传的file文件，单文件
       productId: this.props.productId,
       requirementId: this.props.requirementId,
@@ -171,8 +171,8 @@ class CaseModal extends React.Component {
       if (res.code == 200) {
         message.success(
           this.state.operate == 'add'
-            ? '新建测试用例集成功'
-            : '复制测试用例集成功',
+            ? '新建测试场景集成功'
+            : '复制测试场景集成功',
         );
         if (this.state.operate === 'add') {
           let urls = `${this.props.baseUrl}/caseManager/${this.props.productId}/${res.data}/undefined/0`;
@@ -248,7 +248,7 @@ class CaseModal extends React.Component {
         this.setState(state => ({ xmindFile: file }));
         const isLt2M = file.size / 1024 / 1024 <= 100;
         if (!isLt2M) {
-          message.error('用例集文件大小不能超过100M');
+          message.error('场景集文件大小不能超过100M');
         }
         return false;
       },
@@ -257,13 +257,13 @@ class CaseModal extends React.Component {
     let title = '';
     switch (operate) {
       case 'edit':
-        title = '修改测试用例集';
+        title = '修改测试场景集';
         break;
       case 'add':
-        title = '新增测试用例集';
+        title = '新增测试场景集';
         break;
       case 'copy':
-        title = `复制测试用例集`;
+        title = `复制测试场景集`;
         break;
       default:
         break;
@@ -289,13 +289,13 @@ class CaseModal extends React.Component {
         cancelText="取消"
         width="700px"
       >
-        <Form.Item {...formItemLayout} label="用例集名称：">
+        <Form.Item {...formItemLayout} label="场景集名称：">
           {getFieldDecorator('case', {
-            rules: [{ required: true, message: '请填写用例集名称' }],
+            rules: [{ required: true, message: '请填写场景集名称' }],
             initialValue: data
               ? (operate == 'copy' && `copy of ${data.title}`) || data.title
               : '',
-          })(<Input placeholder="请填写用例集名称" />)}
+          })(<Input placeholder="请填写场景集名称" />)}
         </Form.Item>
         <Form.Item {...formItemLayout}  label="关联需求：" required>
           {/* <Form.Item
@@ -321,9 +321,9 @@ class CaseModal extends React.Component {
             )}
           </Form.Item>
         </Form.Item>
-        <Form.Item {...formItemLayout} style={{ marginTop: '-30px' }} label="用例集分类：">
+        <Form.Item {...formItemLayout} style={{ marginTop: '-30px' }} label="场景集分类：">
           {getFieldDecorator('bizId', {
-            rules: [{ required: true, message: '请选择用例集分类' }],
+            rules: [{ required: true, message: '请选择场景集分类' }],
             initialValue:
               this.state.operate === 'add'
                 ? this.props.caseIds.length === 1 &&
@@ -336,7 +336,7 @@ class CaseModal extends React.Component {
             <TreeSelect
               style={{ width: '100%' }}
               dropdownStyle={{ maxHeight: 400, overflow: 'auto' }}
-              placeholder="请选择用例"
+              placeholder="请选择场景"
               allowClear
               multiple
               treeDefaultExpandAll

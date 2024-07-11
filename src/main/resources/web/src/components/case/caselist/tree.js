@@ -152,7 +152,7 @@ class FileTree extends React.Component {
           <span>
             同时会删除包含的&nbsp;&nbsp;
             <span style={{ color: 'red' }}>{item.caseIds.length}</span>
-            &nbsp;&nbsp;个用例集
+            &nbsp;&nbsp;个场景集
           </span>
         </span>
       ),
