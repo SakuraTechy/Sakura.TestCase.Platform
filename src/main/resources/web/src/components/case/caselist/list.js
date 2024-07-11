@@ -37,7 +37,7 @@ class Lists extends React.Component {
       choiseDate: [], // 时间筛选最终选择
       iterationFilter: '', // 需求筛选最终选择
       createrFilter: '', // 创建人筛选最终选择
-      nameFilter: '', // 用例名称筛选最终选择
+      nameFilter: '', // 场景名称筛选最终选择
       xmindFile: null, // 保存上传的file文件，单文件    };
       checked: false,
       requirementIds: [],
@@ -104,14 +104,14 @@ class Lists extends React.Component {
   setColumns = () => {
     const columns = [
       {
-        title: '用例集ID',
+        title: '场景集ID',
         dataIndex: 'id',
         key: 'id',
         width: 80,
         render: text => <div>{text}</div>,
       },
       {
-        title: '用例集名称',
+        title: '场景集名称',
         dataIndex: 'title',
         key: 'title',
         width: 160,
@@ -143,8 +143,8 @@ class Lists extends React.Component {
       },
       {
         title: () => (
-          <Tooltip placement="top" title="用例集的总数">
-            <span style={{ cursor: 'pointer' }}>用例总数</span>
+          <Tooltip placement="top" title="场景集的总数">
+            <span style={{ cursor: 'pointer' }}>场景总数</span>
           </Tooltip>
         ),
         dataIndex: 'totalNum',
@@ -153,7 +153,7 @@ class Lists extends React.Component {
         width: 100,
         render: (text, record) => {
           return (
-            <Tooltip title='用例总数'>
+            <Tooltip title='场景总数'>
               <span className="table-operation">{record.totalCount}</span>
             </Tooltip>
           );
@@ -215,7 +215,7 @@ class Lists extends React.Component {
 
           return (
             <span>
-              <Tooltip title="编辑用例集">
+              <Tooltip title="编辑场景集">
                 <a
                   onClick={() => {
                     let infos =
@@ -250,7 +250,7 @@ class Lists extends React.Component {
                   <Icon type="file-done" />
                 </a>
               </Tooltip>
-              <Tooltip title="复制用例集">
+              <Tooltip title="复制场景集">
                 <a
                   onClick={() => {
                     let infos =
@@ -276,14 +276,14 @@ class Lists extends React.Component {
                       <a
                         onClick={() => {
                           Modal.confirm({
-                            title: '确认删除用例集吗',
+                            title: '确认删除场景集吗',
                             content: (
                               <span>
                                 当前正在删除&nbsp;&nbsp;
                                 <span style={{ color: 'red' }}>
                                   {record.title}
                                 </span>
-                                &nbsp;&nbsp;用例集，并且删除用例集包含的{' '}
+                                &nbsp;&nbsp;场景集，并且删除场景集包含的{' '}
                                 <span style={{ color: 'red' }}>
                                   {record.recordNum}
                                 </span>{' '}
@@ -487,7 +487,7 @@ class Lists extends React.Component {
       },
       {
         title: () => (
-          <Tooltip placement="top" title="通过用例数的占比情况">
+          <Tooltip placement="top" title="通过场景数的占比情况">
             <span style={{ cursor: 'pointer' }}>通过率</span>
           </Tooltip>
         ),
@@ -496,7 +496,7 @@ class Lists extends React.Component {
         align: 'center',
         width: 50,
         render: (text, record) => (
-          <Tooltip placement="top" title="通过用例数/已执行用例数">
+          <Tooltip placement="top" title="通过场景数/已执行场景数">
             <span className="table-operation">
               {text > 0 ? parseInt((text / record.executeNum) * 100) : 0}%
             </span>
@@ -505,7 +505,7 @@ class Lists extends React.Component {
       },
       {
         title: () => (
-          <Tooltip placement="top" title="测试任务的用例执行情况">
+          <Tooltip placement="top" title="测试任务的场景执行情况">
             <span style={{ cursor: 'pointer' }}>执行情况</span>
           </Tooltip>
         ),
@@ -514,7 +514,7 @@ class Lists extends React.Component {
         align: 'center',
         width: 100,
         render: (text, record) => (
-          <Tooltip title="已执行 / 未执行 / 总用例数">
+          <Tooltip title="已执行 / 未执行 / 总场景数">
             <span className="table-operation">
               {text} / {record.totalNum - text} / {record.totalNum}
             </span>
@@ -523,7 +523,7 @@ class Lists extends React.Component {
       },
       {
         title: () => (
-          <Tooltip placement="top" title="当前测试任务的用例执行进度">
+          <Tooltip placement="top" title="当前测试任务的场景执行进度">
             <span style={{ cursor: 'pointer' }}>测试进度</span>
           </Tooltip>
         ),
@@ -532,7 +532,7 @@ class Lists extends React.Component {
         align: 'center',
         width: 65,
         render: (text, record) => (
-          <Tooltip title="已执行用例数/总用例数">
+          <Tooltip title="已执行场景数/总场景数">
             <span className="table-operation">
               {parseInt((record.executeNum / record.totalNum) * 100)}%
             </span>
@@ -558,7 +558,7 @@ class Lists extends React.Component {
       },
       {
         title: () => (
-          <Tooltip placement="top" title="参与标记用例结果的人员">
+          <Tooltip placement="top" title="参与标记场景结果的人员">
             <span style={{ cursor: 'pointer' }}>执行人</span>
           </Tooltip>
         ),

@@ -1,4 +1,4 @@
-/** 历史版本对比结果 */
+/* eslint-disable */
 import React from 'react'
 import AgileTCEditor from 'react-agiletc-editor'
 import { Button, message, Spin, Card, Tag } from 'antd'

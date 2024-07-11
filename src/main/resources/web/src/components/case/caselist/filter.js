@@ -73,7 +73,7 @@ class Filter extends React.Component {
           <Col span={6} className="m-b-10">
             <div className="filter-item">
               <Input
-                placeholder="用例集名称"
+                placeholder="场景集名称"
                 style={{ width: '100%' }}
                 onChange={this.nameFiltersInput}
                 value={this.state.nameFilter}
