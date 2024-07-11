@@ -63,7 +63,7 @@ export default class CaseMgt extends React.Component {
     if (Number(iscore) !== 2 && minderData && !hasBreak) {
       // 非冒烟case才可保存
       if (Number(minderData.base) > 1) {
-        message.warn('即将离开页面，自动保存当前用例。');
+        message.warn('即将离开页面，自动保存当前场景。');
         this.updateCase();
       }
     }
@@ -122,7 +122,7 @@ export default class CaseMgt extends React.Component {
     // window.history.go(-1);
   };
 
-  //保存用例
+  //保存场景
   updateCase = () => {
     let recordId =
       this.props.match.params.itemid == 'undefined'
@@ -185,11 +185,11 @@ export default class CaseMgt extends React.Component {
         <Breadcrumb style={{ marginBottom: 8, fontSize: 12 }}>
           <Breadcrumb.Item>
             <Link to="/case/caseList/1">
-              {casedetail ? '用例' : '任务'}管理
+              {casedetail ? '场景' : '任务'}管理
             </Link>
           </Breadcrumb.Item>
           <Breadcrumb.Item>
-            {casedetail ? '用例' : '任务'}详情：
+            {casedetail ? '场景' : '任务'}详情：
             {recordDetail ? recordDetail.title : ''}
             {casedetail ? casedetail.title : ''}
           </Breadcrumb.Item>
