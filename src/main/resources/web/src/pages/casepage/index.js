@@ -43,7 +43,7 @@ class casePage extends React.Component {
         <section style={{ marginBottom: 30 }}>
           <Header style={{ zIndex: 9 }}>
             <a href="/" style={{ color: '#fff', fontSize: 24 }}>
-                        昂楷科技-测试场景管理平台
+                        测试场景管理平台
             </a>
             {getCookies('username') ? (
               <Dropdown
